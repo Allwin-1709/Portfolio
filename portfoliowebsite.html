@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joe Allwin | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: linear-gradient(to right, #1a202c, #2d3748, #4a5568);
+      color: #e2e8f0;
+    }
+    .light-mode {
+      background: linear-gradient(to right, #edf2f7, #e2e8f0, #cbd5e0);
+      color: #2d3748;
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    .nav-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #1a202c;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+    .profile-pic {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 6px solid transparent;
+      background: linear-gradient(to right, #00bcd4, #4a90e2);
+      box-shadow: 0 8px 20px rgba(0, 188, 212, 0.3);
+      padding: 4px;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+    .section-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <header class="nav-sticky bg-gray-900 bg-opacity-80 backdrop-blur-sm shadow-lg py-2">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+      <h1 class="text-2xl md:text-3xl font-bold text-cyan-400">Joe Allwin</h1>
+      <nav class="flex items-center gap-6">
+        <a href="#about" class="text-gray-300 hover:text-cyan-400 transition">About</a>
+        <a href="#skills" class="text-gray-300 hover:text-cyan-400 transition">Skills</a>
+        <a href="#projects" class="text-gray-300 hover:text-cyan-400 transition">Projects</a>
+        <a href="#certifications" class="text-gray-300 hover:text-cyan-400 transition">Certifications</a>
+        <a href="#contact" class="text-gray-300 hover:text-cyan-400 transition">Contact</a>
+        <button id="theme-toggle" class="text-gray-300 hover:text-cyan-400">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="sun" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            <path id="moon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <section id="about" class="section-animate mb-16">
+      <h2 class="text-3xl font-semibold text-cyan-400 mb-6">About Me</h2>
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="flex-1">
+          <p class="text-gray-300 mb-4">Hello! I'm Joe Allwin, a passionate frontend and game developer with a deep enthusiasm for crafting engaging user experiences and functional designs.</p>
+          <p class="text-gray-300 mb-4">I specialize in JavaScript, HTML/CSS, Python, and game development. I’ve built web applications like Mini Quora using Flask, Java-based games like Guess The Number, and a comprehensive HR Management System using Python.</p>
+          <p class="text-gray-300 mb-4">My recent Java project, <strong>Disaster Management System</strong>, is a desktop application that streamlines reporting, task assignment, and recovery tracking across multiple roles (Citizen, Admin, Responder, Recovery).</p>
+          <p class="text-gray-300 mb-4">I'm constantly learning, experimenting with new technologies, and challenging myself with new ideas and projects. Let's connect and create something amazing!</p>
+          <p class="text-gray-300 mb-4"><strong>Objective:</strong> To apply my technical and creative skills to real-world challenges while continuously improving and contributing meaningfully to the development community.</p>
+          <p class="text-gray-300"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/joe-allwin-q-93632a2a4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-cyan-400 hover:underline">Joe Allwin</a></p>
+        </div>
+        <img src="img/Joe Allwin.jpg" alt="Joe Allwin" class="profile-pic">
+      </div>
+    </section>
+
+    <section id="skills" class="section-animate mb-16">
+      <h2 class="text-3xl font-semibold text-cyan-400 mb-6">Skills</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="JavaScript">JavaScript</div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="HTML & CSS">HTML & CSS</div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="Python">Python</div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="Game Design">Game Design</div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="Frontend Development">Frontend Development</div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md" data-skill="Web Development">Web Development</div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-animate mb-16">
+      <h2 class="text-3xl font-semibold text-cyan-400 mb-6">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Mini Quora</h3>
+          <p class="text-gray-300">A Q&A platform clone using Flask (Python) and HTML/CSS. Implements user registration, login, post creation, and search features.</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Guess The Number Game</h3>
+          <p class="text-gray-300">Interactive Java Swing game where users guess a random number with scoring and attempts logic.</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Student Grade Calculator</h3>
+          <p class="text-gray-300">A simple Java application (with HTML frontend) to calculate a student's grade and percentage based on input marks.</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Disaster Management System</h3>
+          <p class="text-gray-300">A desktop Java application using Swing and AWT that enables coordinated disaster reporting and task management across citizens, admins, responders, and recovery teams.</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">HR Management System</h3>
+          <p class="text-gray-300">A Python-based system for IT companies to manage employee data, including recruitment, onboarding, payroll, and performance tracking, using a doubly linked list for efficient data handling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section-animate mb-16">
+      <h2 class="text-3xl font-semibold text-cyan-400 mb-6">Certifications</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Web Development</h3>
+          <img src="img/aadovi.jpg" alt="Web Development - Adaovi" class="w-full h-auto rounded-md mb-4">
+          <p class="text-gray-300">Completed via Adaovi (Mar 8, 2024 – Apr 28, 2024)</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">IoT & Robotics</h3>
+          <img src="img/skillintern.jpg" alt="IoT & Robotics - Skill Intern" class="w-full h-auto rounded-md mb-4">
+          <p class="text-gray-300">Completed via Skill Intern (Feb 1, 2025 – Mar 31, 2025)</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Sensors and Actuators</h3>
+          <img src="data/Sensors and Actuators.pdf" alt="Sensors and Actuators - NPTEL" class="w-full h-auto rounded-md mb-4">
+          <p class="text-gray-300">Completed via NPTEL (Jan-Apr 2025, Score: 49)</p>
+        </div>
+        <div class="card bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-gray-100 mb-2">Python for Data Science</h3>
+          <img src="data/Python for Data Science.pdf" alt="Python for Data Science - NPTEL" class="w-full h-auto rounded-md mb-4">
+          <p class="text-gray-300">Completed via NPTEL (Jan-Feb 2025, Score: 57)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-animate mb-16">
+      <h2 class="text-3xl font-semibold text-cyan-400 mb-6">Contact Me</h2>
+      <div class="text-gray-300">
+        <p class="mb-2">Email: <a href="mailto:joeallwin651@gmail.com" class="text-cyan-400 hover:underline">joeallwin651@gmail.com</a></p>
+        <p>Phone: <a href="tel:+917845144769" class="text-cyan-400 hover:underline">+91 7845144769</a></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content text-gray-300">
+      <span class="close-modal text-gray-100 hover:text-cyan-400">&times;</span>
+      <h2 id="modal-title" class="text-2xl font-semibold text-cyan-400 mb-4"></h2>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 py-6 text-center text-gray-300">
+    <p>© 2025 Joe Allwin. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const certifications = {
+      "JavaScript": [
+        {
+          title: "Web Development",
+          image: "img/aadovi.jpg",
+          details: "Completed via Adaovi (Mar 8, 2024 – Apr 28, 2024)",
+          skills: ["JavaScript", "Web Development", "Frontend Development"]
+        }
+      ],
+      "HTML & CSS": [
+        {
+          title: "Web Development",
+          image: "img/aadovi.jpg",
+          details: "Completed via Adaovi (Mar 8, 2024 – Apr 28, 2024)",
+          skills: ["JavaScript", "Web Development", "Frontend Development"]
+        }
+      ],
+      "Python": [
+        {
+          title: "Python for Data Science",
+          image: "data/Python for Data Science.pdf",
+          details: "Completed via NPTEL (Jan-Feb 2025, Score: 57)",
+          skills: ["Python"]
+        }
+      ],
+      "Game Design": [
+        {
+          title: "IoT & Robotics",
+          image: "img/skillintern.jpg",
+          details: "Completed via Skill Intern (Feb 1, 2025 – Mar 31, 2025)",
+          skills: ["Game Design"]
+        }
+      ],
+      "Frontend Development": [
+        {
+          title: "Web Development",
+          image: "img/aadovi.jpg",
+          details: "Completed via Adaovi (Mar 8, 2024 – Apr 28, 2024)",
+          skills: ["JavaScript", "Web Development", "Frontend Development"]
+        }
+      ],
+      "Web Development": [
+        {
+          title: "Web Development",
+          image: "img/aadovi.jpg",
+          details: "Completed via Adaovi (Mar 8, 2024 – Apr 28, 2024)",
+          skills: ["JavaScript", "Web Development", "Frontend Development"]
+        }
+      ],
+      "Sensors and Actuators": [
+        {
+          title: "Sensors and Actuators",
+          image: "data/Sensors and Actuators.pdf",
+          details: "Completed via NPTEL (Jan-Apr 2025, Score: 49)",
+          skills: ["Game Design", "IoT & Robotics"]
+        }
+      ]
+    };
+
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const closeModal = document.querySelector('.close-modal');
+
+    document.querySelectorAll('.card[data-skill]').forEach(skillCard => {
+      skillCard.addEventListener('click', () => {
+        const skill = skillCard.getAttribute('data-skill');
+        const certs = certifications[skill] || [];
+
+        if (certs.length === 0) return;
+
+        modalTitle.textContent = `${skill} Certifications`;
+        modalContent.innerHTML = certs.map(cert => `
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold text-gray-100 mb-2">${cert.title}</h3>
+            <img src="${cert.image}" alt="${cert.title}" class="mb-4 rounded-md">
+            <p>${cert.details}</p>
+            <p class="mt-2"><strong>Related Skills:</strong> ${cert.skills.join(', ')}</p>
+          </div>
+        `).join('');
+
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun');
+    const moonIcon = document.getElementById('moon');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode');
+      sunIcon.classList.toggle('hidden');
+      moonIcon.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
